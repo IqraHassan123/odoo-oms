@@ -1,0 +1,573 @@
+<templates xml:space="preserve">
+    <t t-name="custom.oms.leave.my_leaves" >
+        <div class="table-responsive tab-pane fade show active" id="myLeaves" aria-labelledby="myLeaves-tab" role="tabpanel">
+                    <div class="mb-0 __custom_third" style="margin-bottom: 30px !important;">
+                        <div class="row-wrap justify-content-between">
+                          <div class="ant-row ant-row-start sc-hDXZEW fBASHq">
+                            <div class="ant-col sc-jmWKIO kTxHsW ant-col-md-24 ant-col-lg-24">
+                              <div class="sc-dVgrWH gBBbih row-wrap justify-content-end">
+                                <button
+                                  clicked="[object Object]"
+                                  theme="light"
+                                  item="[object Object]"
+                                  type="button"
+                                  class="ant-btn ant-btn-default sc-fqugDx fBZUnX Leave-count-button"
+                                >
+                                  <div class="progressDiv">
+                                    <div
+                                      class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                      role="progressbar"
+                                    >
+                                      <div
+                                        class="ant-progress-inner"
+                                        style="width: 120px; height: 120px; font-size: 24px"
+                                      >
+                                        <svg
+                                          class="ant-progress-circle"
+                                          viewBox="-50 -50 100 100"
+                                          role="presentation"
+                                        >
+                                          <circle
+                                            class="ant-progress-circle-trail"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 0;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset 0.3s,
+                                                stroke-dasharray 0.3s, stroke 0.3s,
+                                                stroke-width 0.06s 0.3s, opacity 0.3s;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(82, 196, 26);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle></svg><span class="ant-progress-text"
+                                          ><svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 16 16"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+                                            ></path>
+                                            <path
+                                              d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+                                            ></path></svg></span>
+                                      </div>
+                                    </div>
+                                    <div class="totalLeavesDiv">
+                                      <div class="sc-fbDCAY WSciB"><t t-esc="this.state.total_leaves" /> /47</div>
+                                      <div class="sc-hSODHv eygyYc">Total</div>
+                                    </div>
+                                  </div></button><button
+                                  clicked="[object Object]"
+                                  item="[object Object]"
+                                  theme="light"
+                                  type="button"
+                                  class="ant-btn ant-btn-default sc-fqugDx jVEBBd Leave-count-button"
+                                >
+                                  <div class="progressDiv">
+                                    <div
+                                      class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                      role="progressbar"
+                                    >
+                                      <div
+                                        class="ant-progress-inner"
+                                        style="width: 120px; height: 120px; font-size: 24px"
+                                      >
+                                        <svg
+                                          class="ant-progress-circle"
+                                          viewBox="-50 -50 100 100"
+                                          role="presentation"
+                                        >
+                                          <circle
+                                            class="ant-progress-circle-trail"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 0;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset 0.3s,
+                                                stroke-dasharray 0.3s, stroke 0.3s,
+                                                stroke-width 0.06s 0.3s, opacity 0.3s;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(225, 176, 255);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(82, 196, 26);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle></svg><span class="ant-progress-text"
+                                          ><svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 16 16"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            style="color: rgb(225, 176, 255)"
+                                          >
+                                            <path
+                                              d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+                                            ></path>
+                                            <path
+                                              d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+                                            ></path></svg></span>
+                                      </div>
+                                    </div>
+                                    <div class="totalLeavesDiv">
+                                      <div class="sc-fbDCAY WSciB">0/25</div>
+                                      <div class="sc-hSODHv eygyYc">Exams</div>
+                                    </div>
+                                  </div></button><button
+                                  clicked="[object Object]"
+                                  item="[object Object]"
+                                  theme="light"
+                                  type="button"
+                                  class="ant-btn ant-btn-default sc-fqugDx jVEBBd Leave-count-button"
+                                >
+                                  <div class="progressDiv">
+                                    <div
+                                      class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                      role="progressbar"
+                                    >
+                                      <div
+                                        class="ant-progress-inner"
+                                        style="width: 120px; height: 120px; font-size: 24px"
+                                      >
+                                        <svg
+                                          class="ant-progress-circle"
+                                          viewBox="-50 -50 100 100"
+                                          role="presentation"
+                                        >
+                                          <circle
+                                            class="ant-progress-circle-trail"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 0;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset 0.3s,
+                                                stroke-dasharray 0.3s, stroke 0.3s,
+                                                stroke-width 0.06s 0.3s, opacity 0.3s;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(247, 177, 143);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(82, 196, 26);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle></svg><span class="ant-progress-text"
+                                          ><svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 16 16"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            style="color: rgb(247, 177, 143)"
+                                          >
+                                            <path
+                                              d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+                                            ></path>
+                                            <path
+                                              d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+                                            ></path></svg></span>
+                                      </div>
+                                    </div>
+                                    <div class="totalLeavesDiv">
+                                      <div class="sc-fbDCAY WSciB">0/5</div>
+                                      <div class="sc-hSODHv eygyYc">Short</div>
+                                    </div>
+                                  </div></button><button
+                                  clicked="[object Object]"
+                                  item="[object Object]"
+                                  theme="light"
+                                  type="button"
+                                  class="ant-btn ant-btn-default sc-fqugDx jVEBBd Leave-count-button"
+                                >
+                                  <div class="progressDiv">
+                                    <div
+                                      class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                      role="progressbar"
+                                    >
+                                      <div
+                                        class="ant-progress-inner"
+                                        style="width: 120px; height: 120px; font-size: 24px"
+                                      >
+                                        <svg
+                                          class="ant-progress-circle"
+                                          viewBox="-50 -50 100 100"
+                                          role="presentation"
+                                        >
+                                          <circle
+                                            class="ant-progress-circle-trail"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 0;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset 0.3s,
+                                                stroke-dasharray 0.3s, stroke 0.3s,
+                                                stroke-width 0.06s 0.3s, opacity 0.3s;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(215, 222, 166);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(82, 196, 26);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle></svg><span class="ant-progress-text"
+                                          ><svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 16 16"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            style="color: rgb(215, 222, 166)"
+                                          >
+                                            <path
+                                              d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+                                            ></path>
+                                            <path
+                                              d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+                                            ></path></svg></span>
+                                      </div>
+                                    </div>
+                                    <div class="totalLeavesDiv">
+                                      <div class="sc-fbDCAY WSciB">0/12</div>
+                                      <div class="sc-hSODHv eygyYc">Casual</div>
+                                    </div>
+                                  </div></button><button
+                                  clicked="[object Object]"
+                                  item="[object Object]"
+                                  theme="light"
+                                  type="button"
+                                  class="ant-btn ant-btn-default sc-fqugDx jVEBBd Leave-count-button"
+                                >
+                                  <div class="progressDiv">
+                                    <div
+                                      class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                      role="progressbar"
+                                    >
+                                      <div
+                                        class="ant-progress-inner"
+                                        style="width: 120px; height: 120px; font-size: 24px"
+                                      >
+                                        <svg
+                                          class="ant-progress-circle"
+                                          viewBox="-50 -50 100 100"
+                                          role="presentation"
+                                        >
+                                          <circle
+                                            class="ant-progress-circle-trail"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            style="
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 0;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset 0.3s,
+                                                stroke-dasharray 0.3s, stroke 0.3s,
+                                                stroke-width 0.06s 0.3s, opacity 0.3s;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(121, 189, 141);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle>
+                                          <circle
+                                            class="ant-progress-circle-path"
+                                            r="47"
+                                            cx="0"
+                                            cy="0"
+                                            stroke-linecap="round"
+                                            stroke-width="6"
+                                            opacity="0"
+                                            style="
+                                              stroke: rgb(82, 196, 26);
+                                              stroke-dasharray: 295.31px, 295.31;
+                                              stroke-dashoffset: 295.3;
+                                              transform: rotate(-90deg);
+                                              transform-origin: 0px 0px;
+                                              transition: stroke-dashoffset, stroke-dasharray,
+                                                stroke, stroke-width 0.3s, opacity;
+                                              fill-opacity: 0;
+                                            "
+                                          ></circle></svg><span class="ant-progress-text"
+                                          ><svg
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            stroke-width="0"
+                                            viewBox="0 0 16 16"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            style="color: rgb(121, 189, 141)"
+                                          >
+                                            <path
+                                              d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"
+                                            ></path>
+                                            <path
+                                              d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z"
+                                            ></path></svg></span>
+                                      </div>
+                                    </div>
+                                    <div class="totalLeavesDiv">
+                                      <div class="sc-fbDCAY WSciB">0/5</div>
+                                      <div class="sc-hSODHv eygyYc">sick</div>
+                                    </div>
+                                  </div>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-select sc-eFrsUN bjufzb ant-select-single ant-select-show-arrow"
+                          >
+                          </div>
+                        </div>
+                      </div>
+                    <div class="sc-irTswW ciGixY sc-hhLPYL PSciO">
+                      <div class="ant-table-wrapper sc-csCMJt ddrtAv customTableHeight_s">
+                        <div class="ant-spin-nested-loading">
+                          <div class="ant-spin-container">
+                            <div
+                              class="ant-table ant-table-empty ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+                            >
+                              <div class="ant-table-container">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover align-middle">
+                                      <colgroup></colgroup>
+                                      <t t-if="this.state.leaves.length > 0">
+                                        <thead class="table-light">
+                                          <tr>
+                                            <th class="sticky-left" style="position: sticky; left: 0px">
+                                              Lead Name
+                                            </th>
+                                            <th>Leave Type</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+                                          </tr>
+                                        </thead>
+                                      </t>
+                                      <tbody>
+                                        <t t-if="this.state.leaves.length == 0">
+                                          <tr>
+                                            <td colspan="6" class="text-center py-4">
+                                              <div class="alert alert-secondary" role="alert">
+                                                <div class="d-flex align-items-center justify-content-center">
+                                                    <div>
+                                                        <svg class="ant-empty-img-simple" width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0 1)" fill="none" fill-rule="evenodd"><ellipse class="ant-empty-img-simple-ellipse" cx="32" cy="33" rx="32" ry="7"></ellipse><g class="ant-empty-img-simple-g" fill-rule="nonzero"><path d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"></path><path d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z" class="ant-empty-img-simple-path"></path></g></g></svg>
+                                                    <br />
+                                                  <span>No data available</span>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                        </t>
+                                        <t t-else="">
+                                          <t t-foreach="this.state.leaves" t-as="leave" t-key="leave.id">
+                                            <tr>
+                                              <td><t t-esc="leave.leave_manager" /></td>
+                                              <td><t t-esc="leave.leave_type" /></td>
+                                              <td><t t-esc="leave.duration" />Days</td>
+                                              <td><t t-esc="leave.status" /></td>
+                                            </tr>
+                                          </t>
+                                        </t>
+                                      </tbody>
+                                    </table>
+                                  </div>                                  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    </t>
+</templates>

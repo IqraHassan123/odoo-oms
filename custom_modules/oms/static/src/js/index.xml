@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.main" owl="1">
+        <div class="sc-bbpQIs iQhnRV" >
+            <section class="ant-layout h-100 style_layoutSetting__TI2Q7" >
+                <SideBar active="'dashboard'" />
+                <section class="ant-layout" >
+                    <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
+                        <div class="page-wrapper" style="">
+                            <div class="__container" > 
+                                <Hero name="this.state.employee_info.display_name" start_date="this.state.employee_info.create_date" image_url="this.state.employee_info.image_256" />
+                                <EmployeeStatus employee_info="this.state.employee_info" attendance_info="this.state.attendance_info" attendance_info_today="this.state.attendance_info_today" />
+                                <Bottom employee_info="this.state.employee_info" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </t>
+</templates>

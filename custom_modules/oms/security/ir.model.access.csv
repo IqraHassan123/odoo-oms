@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oms_announcement,oms.announcement,model_oms_announcement,base.group_user,1,1,1,1
+access_oms_remote_work_admin,hr.attendance.admin,model_oms_remote_work,hr_attendance.group_hr_attendance_manager,1,1,1,1
+access_oms_remote_work_officer,hr.attendance.officer,model_oms_remote_work,hr_attendance.group_hr_attendance_officer,1,1,1,1
+access_oms_remote_work_user,hr.attendance.user,model_oms_remote_work,hr_attendance.group_hr_attendance_own_reader,1,0,0,0
+access_break_schedule,break.schedule,model_break_schedule,base.group_user,1,1,1,1
+access_oms_resignation,oms.resignation,model_oms_resignation,base.group_user,1,1,1,1
+access_remote_work_user,remote.work.user,model_oms_remote_work,base.group_user,1,1,1,0

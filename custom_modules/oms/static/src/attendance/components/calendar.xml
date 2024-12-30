@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.attendance.calendar" owl="1">
+        <div class="table-responsive">
+            <div class="sc-hsiEis hrgVQG">
+              <div>
+                <div class="sc-irTswW gDWDtU sc-hlindT fhKqxI">
+                  <div class="ant-table-wrapper sc-csCMJt ddrtAv customTableHeight">
+                    <div class="ant-spin-nested-loading">
+                      <div class="ant-spin-container">
+                        <div
+                          class="ant-table ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left"
+                        >
+                          <div class="ant-table-container">
+                            <div
+                              class="ant-table-content"
+                              style="overflow: auto hidden"
+                            >
+                              <table
+                                style="
+                                  width: auto;
+                                  min-width: 100%;
+                                  table-layout: fixed;
+                                "
+                              >
+                                <colgroup></colgroup>
+                                <thead class="ant-table-thead">
+                                  <tr>
+                                    <th
+                                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                                      style="position: sticky; left: 0px"
+                                    >
+                                      Name
+                                    </th>
+                                    <th class="ant-table-cell" t-foreach="this.state.days" t-as="day" t-key="day.number" >
+                                      <div
+                                        class="d-flex justify-content-center"
+                                        style="text-align: center"
+                                      >
+                                        <div>
+                                          <p><t t-esc="day.name" />  </p>
+                                          <p><t t-esc="day.number" /> </p>
+                                        </div>
+                                      </div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody class="ant-table-tbody">
+                                  <tr class="ant-table-row ant-table-row-level-0">
+                                    <td
+                                      class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                                      style="position: sticky; left: 0px"
+                                    >
+                                      <div
+                                        style=""
+                                        class="table-avatar disableCursor d-flex align-items-center avatar-dark-theme"
+                                      >
+                                        <span
+                                          class="ant-avatar ant-avatar-circle sc-brKeYL pIiME"
+                                          style="
+                                            width: 35px !important;
+                                            height: 35px !important;
+                                            line-height: 35px;
+                                            font-size: 18px;
+                                            background-color: white;
+                                            border: 2px solid red;
+                                          "
+                                          ><span
+                                            class="ant-avatar-string"
+                                            style="
+                                              line-height: 35px;
+                                              transform: scale(1) translateX(-50%);
+                                            "
+                                            >M</span></span>
+                                        <div style="width: 172px">
+                                          <a
+                                            href="#"
+                                            ><div class="sc-fGFwAa DqjWT">
+                                              <div class="sc-blLsxD bjFNEL">
+                                                Muhammad Absar
+                                              </div>
+                                            </div></a>
+                                          <div
+                                            class="sc-hAtEyd gNFwKV subTitle"
+                                          ></div>
+                                        </div>
+                                      </div>
+                                    </td>
+                                    <td class="ant-table-cell" t-foreach="this.state.data" t-as="day" t-key="day.day">
+                                      <div style="">
+                                        <img
+                                          class="absent"
+                                          style="cursor: auto"
+                                          t-att-src="day.image_url"
+                                        />
+                                        <div></div>
+                                      </div>
+                                    </td>
+                                    
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="attendanceResult">
+                <div>
+                  <p>Showing results for <span><t t-esc="this.state.name_of_the_month" /> <t t-esc="this.state.year" />  </span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </t>
+</templates>

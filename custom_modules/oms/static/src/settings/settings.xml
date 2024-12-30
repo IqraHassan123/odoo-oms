@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.settings" owl="1">
+        <div class="sc-bbpQIs iQhnRV" >
+            <section class="ant-layout h-100 style_layoutSetting__TI2Q7" >
+                <SideBar active="'settings'" />
+                <section class="ant-layout" >
+                    <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
+                        <div class="page-wrapper" style="">
+                            <div class="content container-fluid">
+                                <div class="page-header">
+                                  <div class="sc-TWmSL kHiyZa d-flex ___first_settings">
+                                    <div class="col __second_settings">
+                                      <h3 class="sc-eACynP gnOZuZ page-title">Settings</h3>
+                                      <ul class="sc-bZPPFW hInbbk breadcrumb">
+                                        <li class="breadcrumb-item false">
+                                          <a class="sc-gjTGSA gUoYHo" href="#" t-on-click="() => this.openDashboard()">Dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item active">
+                                          <a class="sc-gjTGSA gUoYHo" href="#" t-on-click="() => this.openSettings()">Settings</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                    <div class="switchButton mt-2">
+                                      <div class="sc-hqNImG dMua-DB switch-btn-flex"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row __third_settings">
+                                  <div class="___fourth_settings">
+                                    <div class="style_tabstyle__QOPGn table-responsive">
+                                      <div
+                                        class="ant-card ant-card-bordered ant-card-contain-tabs style_tabcardSettings__juVMs TabProfile"
+                                      >
+                                        <div class="ant-card-head __fourth_settings">
+                                          <div class="ant-card-head-wrapper __fifth_settings"></div>
+                                          <div
+                                            class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs __sixth_settings"
+                                          >
+                                            <div role="tablist" class="ant-tabs-nav __seventh_settings">
+                                              <div class="ant-tabs-nav-wrap __eigth_settings">
+                                                <div
+                                                  class="ant-tabs-nav-list __ninth_settings"
+                                                  style="transform: translate(0px, 0px)"
+                                                >
+                                                  <div
+                                                    data-node-key="accountSettings"
+                                                    class="ant-tabs-tab __twelth_settings ant-tabs-tab-active __tenth_settings"
+                                                  >
+                                                    <div
+                                                      role="tab"
+                                                      aria-selected="true"
+                                                      class="__eleventh_settings"
+                                                      aria-disabled="false"
+                                                      tabindex="0"
+                                                      id="rc-tabs-2-tab-accountSettings"
+                                                      aria-controls="rc-tabs-2-panel-accountSettings"
+                                                    >
+                                                      Account Settings
+                                                    </div>
+                                                  </div>
+                                                  <div data-node-key="appearnace" class="ant-tabs-tab __twelth_settings">
+                                                    <div
+                                                      role="tab"
+                                                      aria-selected="false"
+                                                      class="__eleventh_settings"
+                                                      aria-disabled="false"
+                                                      tabindex="0"
+                                                      id="rc-tabs-2-tab-appearnace"
+                                                      aria-controls="rc-tabs-2-panel-appearnace"
+                                                    >
+                                                      Appearance
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    data-node-key="notificationsettings"
+                                                    class="ant-tabs-tab __twelth_settings"
+                                                  >
+                                                    <div
+                                                      role="tab"
+                                                      aria-selected="false"
+                                                      class="__eleventh_settings"
+                                                      aria-disabled="false"
+                                                      tabindex="0"
+                                                      id="rc-tabs-2-tab-notificationsettings"
+                                                      aria-controls="rc-tabs-2-panel-notificationsettings"
+                                                    >
+                                                      Notification Settings
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                                                    style="left: 0px; width: 201px"
+                                                  ></div>
+                                                </div>
+                                              </div>
+                                              <div
+                                                class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+                                              >
+                                                <button
+                                                  type="button"
+                                                  class="ant-tabs-nav-more"
+                                                  tabindex="-1"
+                                                  aria-hidden="true"
+                                                  aria-haspopup="listbox"
+                                                  aria-controls="rc-tabs-2-more-popup"
+                                                  id="rc-tabs-2-more"
+                                                  aria-expanded="false"
+                                                  style="visibility: hidden; order: 1"
+                                                >
+                                                  <span
+                                                    role="img"
+                                                    aria-label="ellipsis"
+                                                    class="anticon anticon-ellipsis"
+                                                    ><svg
+                                                      viewBox="64 64 896 896"
+                                                      focusable="false"
+                                                      data-icon="ellipsis"
+                                                      width="1em"
+                                                      height="1em"
+                                                      fill="currentColor"
+                                                      aria-hidden="true"
+                                                    >
+                                                      <path
+                                                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                                      ></path></svg></span>
+                                                </button>
+                                              </div>
+                                            </div>
+                                            <div class="ant-tabs-content-holder">
+                                              <div class="ant-tabs-content ant-tabs-content-top">
+                                                <div
+                                                  role="tabpanel"
+                                                  tabindex="0"
+                                                  aria-hidden="false"
+                                                  class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                                                  id="rc-tabs-2-panel-accountSettings"
+                                                  aria-labelledby="rc-tabs-2-tab-accountSettings"
+                                                ></div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                                <!-- <div class="ant-card-body"></div> -->
+                                      </div>
+                                      <div class="sc-geSwfA eBTvXf">
+                                        <form id="basic" class="ant-form ant-form-vertical">
+                                          <div
+                                            class="ant-row"
+                                            style="margin-left: -12px; margin-right: -12px; max-width: 100%;"
+                                          >
+                                            <div
+                                              class="ant-col __thirteen_settings ant-col-lg-16"
+                                              style="padding-left: 12px; padding-right: 12px"
+                                            >
+                                              <div class="ant-card ant-card-bordered sc-hbpqLB eISmls">
+                                                <div class="ant-card-body">
+                                                  <div>
+                                                    <div class="sc-ioxgIv jjvSaI newAvatarImg">
+                                                      <span
+                                                        class="ant-avatar ant-avatar-circle sc-brKeYL pIiME"
+                                                        style="
+                                                          width: 75px;
+                                                          height: 75px;
+                                                          line-height: 75px;
+                                                          font-size: 18px;
+                                                          margin: 10px;
+                                                        "
+                                                        ><span
+                                                          class="ant-avatar-string"
+                                                          style="
+                                                            line-height: 75px;
+                                                            transform: scale(1) translateX(-50%);
+                                                          "
+                                                        ></span></span>
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    class="ant-row"
+                                                    style="margin-left: -12px; margin-right: -12px"
+                                                  >
+                                                    <!-- <div
+                                                      class="ant-col __thirteen_settings ant-___fourth_settings ant-col-lg-12"
+                                                      style="padding-left: 12px; padding-right: 12px"
+                                                    >
+                                                      <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                          <div class="ant-col ant-form-item-label">
+                                                            <label
+                                                              for="basic_employee_first_name"
+                                                              class="ant-form-item-required"
+                                                              title="First Name"
+                                                              >First Name</label>
+                                                          </div>
+                                                          <div class="ant-col ant-form-item-control">
+                                                            <div class="ant-form-item-control-input">
+                                                              <div
+                                                                class="ant-form-item-control-input-content"
+                                                              >
+                                                                <div class="sc-beqWaB gwQXLK">
+                                                                  <input
+                                                                    type="text"
+                                                                    class="ant-input"
+                                                                    value=""
+                                                                    style="
+                                                                      height: 45px;
+                                                                      font-size: 14px;
+                                                                      font-weight: lighter;
+                                                                      font-family: Poppins;
+                                                                    "
+                                                                    t-model="this.state.firstName"
+                                                                  /><span></span>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div> -->
+                                                    <div
+                                                      class="ant-col __thirteen_settings ant-___fourth_settings ant-col-lg-12"
+                                                      style="padding-left: 12px; padding-right: 12px"
+                                                    >
+                                                      <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                          <div class="ant-col ant-form-item-label">
+                                                            <label
+                                                              for="basic_employee_last_name"
+                                                              class="ant-form-item-required"
+                                                              title="Last Name"
+                                                              >Name</label>
+                                                          </div>
+                                                          <div class="ant-col ant-form-item-control">
+                                                            <div class="ant-form-item-control-input">
+                                                              <div
+                                                                class="ant-form-item-control-input-content"
+                                                              >
+                                                                <div class="sc-beqWaB gwQXLK">
+                                                                  <input
+                                                                    type="text"
+                                                                    class="ant-input"
+                                                                    value=""
+                                                                    style="
+                                                                      height: 45px;
+                                                                      font-size: 14px;
+                                                                      font-weight: lighter;
+                                                                      font-family: Poppins;
+                                                                    "
+                                                                    t-model="this.state.name"
+                                                                  /><span></span>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div
+                                                    class="ant-row"
+                                                    style="margin-left: -12px; margin-right: -12px"
+                                                  >
+                                                    <div
+                                                      class="ant-col __thirteen_settings ant-___fourth_settings ant-col-lg-12"
+                                                      style="padding-left: 12px; padding-right: 12px"
+                                                    >
+                                                      <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                          <div class="ant-col ant-form-item-label">
+                                                            <label
+                                                              for="basic_employee_email"
+                                                              class="ant-form-item-required"
+                                                              title="Email"
+                                                              >Email</label>
+                                                          </div>
+                                                          <div class="ant-col ant-form-item-control">
+                                                            <div class="ant-form-item-control-input">
+                                                              <div
+                                                                class="ant-form-item-control-input-content"
+                                                              >
+                                                                <div class="sc-beqWaB gwQXLK">
+                                                                  <input
+                                                                    type="text"
+                                                                    disabled="true"
+                                                                    class="ant-input ant-input-disabled"
+                                                                    value=""
+                                                                    style="
+                                                                      height: 45px;
+                                                                      font-size: 14px;
+                                                                      font-weight: lighter;
+                                                                      font-family: Poppins;
+                                                                    "
+                                                                  /><span></span>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div
+                                                      class="ant-col __thirteen_settings ant-___fourth_settings ant-col-lg-12"
+                                                      style="padding-left: 12px; padding-right: 12px"
+                                                    >
+                                                      <div class="ant-form-item">
+                                                        <div class="ant-row ant-form-item-row">
+                                                          <div class="ant-col ant-form-item-label">
+                                                            <label
+                                                              for="basic_employee_mobile_number"
+                                                              class="ant-form-item-required"
+                                                              title="Phone "
+                                                              >Phone
+                                                            </label>
+                                                          </div>
+                                                          <div class="ant-col ant-form-item-control">
+                                                            <div class="ant-form-item-control-input">
+                                                              <div
+                                                                class="ant-form-item-control-input-content"
+                                                              >
+                                                                <div class="react-tel-input">
+                                                                                                    <!--
+                                                                                                    <div
+                                                                                                    class="special-label">Phone</div> -->
+                                                                  <input
+                                                                    class="form-control"
+                                                                    placeholder="+92 3XX-XXXXXXXX"
+                                                                    type="tel"
+                                                                    value="+92"
+                                                                    style="
+                                                                      background-color: white;
+                                                                      color: black;
+                                                                    "
+                                                                    t-model="this.state.phone"
+                                                                  />
+                                                                  <div
+                                                                    class="flag-dropdown"
+                                                                    style="
+                                                                      border-width: 1px;
+                                                                      z-index: 9;
+                                                                      background-color: white;
+                                                                    "
+                                                                  >
+                                                                    <div
+                                                                      class="selected-flag"
+                                                                      title="Pakistan: + 92"
+                                                                      tabindex="0"
+                                                                      role="button"
+                                                                      aria-haspopup="listbox"
+                                                                    >
+                                                                      <div class="flag pk">
+                                                                        <div class="arrow"></div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="d-flex justify-content-end mt-3">
+                                                    <button
+                                                      type="submit"
+                                                      style="
+                                                        background-color: rgb(45, 113, 216);
+                                                        color: white;
+                                                        border: none;
+                                                        outline: none;
+                                                        border-radius: 20px;
+                                                        padding: 10px;
+                                                      "
+                                                      t-on-click="saveChanges"
+                                                      t-ref="button"
+                                                    >
+                                                      Save Changes
+                                                    </button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <!-- <div
+                                              class="ant-col __thirteen_settings ant-col-lg-8"
+                                              style="padding-left: 12px; padding-right: 12px" -->
+                                            <!-- >
+                                              <div class="ant-card ant-card-bordered sc-gBIOLS cOmOyX">
+                                                <div class="ant-card-body">
+                                                  <h3 class="ant-typography">Change Password</h3>
+                                                  <p>
+                                                    Choose Password. You might need to sign in again. Select
+                                                    Change Password, then Enter your new password.
+                                                  </p>
+                                                  <div>
+                                                    <button
+                                                      style="
+                                                        width: 100%;
+                                                        color: white;
+                                                        background-color: rgb(45, 113, 216);
+                                                        border: none;
+                                                        outline: none;
+                                                        border-radius: 20px;
+                                                        margin-top: 10px;
+                                                        padding: 8px;
+                                                      "
+                                                    >
+                                                      Change Password
+                                                    </button>
+                                                  </div>
+                                                  <div></div>
+                                                </div>
+                                              </div>
+                                            </div> -->
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>                              
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,82 @@
+# Use an official Arch Linux image as a parent
+FROM archlinux:latest
+
+# Set environment variables
+ENV ODOO_VERSION=15.0
+ENV ODOO_USER=odoo
+ENV ODOO_HOME=/opt/odoo
+ENV ODOO_CONF=/etc/odoo/odoo.conf
+
+# Install dependencies
+RUN pacman -Syu --noconfirm && \
+    pacman -S --noconfirm \
+    python \
+    python-pip \
+    python-setuptools \
+    python-wheel \
+    base-devel \
+    postgresql \
+    libxml2 \
+    libxslt \
+    libjpeg-turbo \
+    harfbuzz \
+    fribidi \
+    pango \
+    freetype2 \
+    libtool \
+    yaml-cpp \
+    git \
+    wget \
+    go \ 
+    && pacman -Scc --noconfirm
+
+# Set the working directory
+WORKDIR ${ODOO_HOME}
+
+# Copy the Odoo project files
+COPY . ${ODOO_HOME}/
+
+# Install Python dependencies
+RUN pip install -r requirements.txt --break-system-packages
+
+# Create a user for Odoo
+RUN useradd -m -d ${ODOO_HOME} -U -r -s /bin/bash ${ODOO_USER}
+
+# Create the configuration file
+RUN mkdir -p /etc/odoo && \
+    touch ${ODOO_CONF} && \
+    chown ${ODOO_USER}:${ODOO_USER} ${ODOO_CONF}
+
+# Set the entrypoint script
+COPY ./entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+RUN mkdir -p ${ODOO_HOME}/yay && chown -R ${ODOO_USER}:${ODOO_USER} ${ODOO_HOME}/yay
+RUN chown -R ${ODOO_USER}:${ODOO_USER} ${ODOO_HOME}
+
+# Switch to the Odoo user
+USER ${ODOO_USER}
+
+# install yay
+RUN cd ${ODOO_HOME} && git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -s --noconfirm
+USER root
+RUN cd ${ODOO_HOME}/yay && pacman -U yay-*.pkg.tar.zst --noconfirm && rm -rf yay-*.pkg.tar.zst && cd .. && rm -rf yay
+
+# install rtlcss
+RUN yay -S --noconfirm npm nodejs && npm install -g rtlcss
+
+# clean cache
+RUN yay -Scc --noconfirm
+
+# Expose the port
+EXPOSE 8069
+
+# Switch to the Odoo user
+USER ${ODOO_USER}
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Command to run Odoo
+CMD ["python", "odoo-bin", "--config", "/etc/odoo/odoo.conf", "-i", "base", "--addons-path=addons,custom_addons"]
+

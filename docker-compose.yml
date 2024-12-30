@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    ports:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # volumes:
+      # - odoo-db-data:/var/lib/postgresql/data
+
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: odoo
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: odoo
+      DB_PASSWORD: odoo
+      PORT: 8069
+    ports:
+      - "${PORT:-7000}:8069"
+    depends_on:
+      db:
+        condition: service_healthy
+
+# volumes:
+  # odoo-db-data:

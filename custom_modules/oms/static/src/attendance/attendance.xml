@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.attendance" owl="1">
+        <div class="sc-bbpQIs iQhnRV" >
+            <section class="ant-layout h-100 style_layoutSetting__TI2Q7" >
+                <SideBar active="'attendance'" />
+                <section class="ant-layout" >
+                    <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
+                        <div class="page-wrapper attendance-page">
+                            <div class="content container-fluid attendance_first">
+                              <div class="page-header">
+                                <div class="sc-ejDCVS lgVRDm d-flex">
+                                  <div class="col">
+                                    <h3 class="sc-eACynP gnOZuZ page-title">Attendance</h3>
+                                    <ul class="sc-bZPPFW hInbbk breadcrumb">
+                                      <li class="breadcrumb-item false">
+                                        <a class="sc-gjTGSA gUoYHo" href="#" t-on-click="() => this.onClickDashboard()">Dashboard</a>
+                                      </li>
+                                      <li class="breadcrumb-item active">
+                                        <a class="sc-gjTGSA gUoYHo" href="#" t-on-click="() => this.onClickAttendance()"
+                                          >Attendance</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div>
+                                  <div class="ant-row" style="margin-left: -12px; margin-right: -12px">
+                                    <div
+                                      class="ant-col ant-col-xs-24 ant-col-md-24 ant-col-xl-18 attendance_second"
+                                      style="padding-left: 12px; padding-right: 12px"
+                                    >
+                                      <div
+                                        theme="light"
+                                        class="ant-card ant-card-bordered sc-GJyyB jdEOOT"
+                                      >
+                                        <div class="ant-card-body">
+                                          <h2 class="sc-dVCGSn fPghOt">Today's Timesheet</h2>
+                                          <div
+                                            class="ant-row ant-row-space-evenly sc-jFJHMl fsjIxu align-items-center"
+                                          >
+                                            <div
+                                              class="ant-col sc-jYvNne ffHuRX ant-col-xs-24 ant-col-sm-8 ant-col-md-8 ant-col-lg-8"
+                                            >
+                                              <div
+                                                class="ant-row ant-row-space-between align-items-center attendance_third"
+                                              >
+                                                <div
+                                                  class="ant-col sc-fYzRkI bnzFU ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24"
+                                                >
+                                                  <h4 style="width: 120px; margin: auto">
+                                                    <h1 class="sc-dXoxLi bSZIVm"><t t-esc="this.state.total_productive_time_today" /></h1>
+                                                  </h4>
+                                                  <p class="sc-bOSxlg gEAcOk">Today's Productive Time</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="ant-col sc-jYvNne ffHuRX ant-col-xs-24 ant-col-sm-8 ant-col-md-8 ant-col-lg-8"
+                                            >
+                                              <div class="ant-row ant-row-center align-items-center attendance_fourth">
+                                                <div
+                                                  class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 attendance_fifth"
+                                                >
+                                                  <div class="punchButton">
+                                                    <button
+                                                      class="punchinButton"
+                                                      style="
+                                                        font-size: 20px;
+                                                        background-color: rgb(45, 113, 216);
+                                                      "
+                                                      t-on-click="() => this.handleOnClickPunch('prayer')"
+                                                    >
+                                                      Prayer
+                                                    </button>
+                                                    <h4 style="width: 175px; margin: auto;display:flex; align-items: center;justify-content: center">
+                                                      <h1 class="sc-dXoxLi bSZIVm"><t t-esc="this.state.total_break_time_prayer" /> </h1>
+                                                    </h4>
+                                                  </div>
+                                                  <p class="sc-bOSxlg gEAcOk">Prayer Break Time</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div
+                                              class="ant-col sc-jYvNne ffHuRX ant-col-xs-24 ant-col-sm-8 ant-col-md-8 ant-col-lg-8"
+                                            >
+                                              <div
+                                                class="ant-row ant-row-space-between align-items-center"
+                                              >
+                                                <div
+                                                  class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 attendance_fifth"
+                                                >
+                                                  <div class="punchButton">
+                                                    <button
+                                                      class="punchinButton"
+                                                      style="
+                                                        font-size: 20px;
+                                                        background-color: rgb(45, 113, 216);
+                                                      "
+                                                      t-on-click="() => this.handleOnClickPunch('lunch')"
+                                                    >
+                                                      Lunch
+                                                    </button>
+                                                    <h4 style="width: 180px; margin: auto; display:flex; align-items: center;justify-content: center;">
+                                                      <h1 class="sc-dXoxLi bSZIVm"><t t-esc="this.state.total_break_time_lunch" /></h1>
+                                                    </h4>
+                                                  </div>
+                                                  <p class="sc-bOSxlg gEAcOk">Lunch Break Time</p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="ant-card ant-card-bordered sc-fnxdBY gwJDPW">
+                                        <div class="ant-card-body">
+                                          <h2 class="sc-dVCGSn fPghOt">Statistics</h2>
+                                          <div class="main-pg-card">
+                                            <div class="progressCard-container">
+                                              <div class="progressCard">
+                                                <div>
+                                                  <div
+                                                    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default todayProgress"
+                                                    role="progressbar"
+                                                  >
+                                                    <div
+                                                      class="ant-progress-inner"
+                                                      style="width: 120px; height: 120px; font-size: 24px"
+                                                    >
+                                                      <svg
+                                                        class="ant-progress-circle"
+                                                        viewBox="-50 -50 100 100"
+                                                        role="presentation"
+                                                      >
+                                                        <circle
+                                                          class="ant-progress-circle-trail"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          style="
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 0;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset 0.3s,
+                                                              stroke-dasharray 0.3s, stroke 0.3s,
+                                                              stroke-width 0.06s 0.3s, opacity 0.3s;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(45, 113, 216);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(82, 196, 26);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle></svg><span class="ant-progress-text" title="0/ 8 hrs"
+                                                        ><span style="font-size: 18px; font-weight: bolder;">Today</span> <br /> <br /><t t-esc="this.state.statistics.today" />/ 8 hrs</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <div
+                                                    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default weekProgress"
+                                                    role="progressbar"
+                                                  >
+                                                    <div
+                                                      class="ant-progress-inner"
+                                                      style="width: 120px; height: 120px; font-size: 24px"
+                                                    >
+                                                      <svg
+                                                        class="ant-progress-circle"
+                                                        viewBox="-50 -50 100 100"
+                                                        role="presentation"
+                                                      >
+                                                        <circle
+                                                          class="ant-progress-circle-trail"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          style="
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 0;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset 0.3s,
+                                                              stroke-dasharray 0.3s, stroke 0.3s,
+                                                              stroke-width 0.06s 0.3s, opacity 0.3s;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(45, 113, 216);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(82, 196, 26);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle></svg><span class="ant-progress-text" title="0/ 40 hrs"
+                                                        ><span style="font-size: 18px; font-weight: bolder;">This Week</span> <br /> <br /> <t t-esc="this.state.statistics.this_week" /> / 40 hrs</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <div
+                                                    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default monthProgress"
+                                                    role="progressbar"
+                                                  >
+                                                    <div
+                                                      class="ant-progress-inner"
+                                                      style="width: 120px; height: 120px; font-size: 24px"
+                                                    >
+                                                      <svg
+                                                        class="ant-progress-circle"
+                                                        viewBox="-50 -50 100 100"
+                                                        role="presentation"
+                                                      >
+                                                        <circle
+                                                          class="ant-progress-circle-trail"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          style="
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 0;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset 0.3s,
+                                                              stroke-dasharray 0.3s, stroke 0.3s,
+                                                              stroke-width 0.06s 0.3s, opacity 0.3s;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(45, 113, 216);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(82, 196, 26);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle></svg><span class="ant-progress-text" title="0/ 160 hrs"
+                                                        ><span style="font-size: 18px; font-weight: bolder;">This Month</span> <br /> <br /> <t t-esc="this.state.statistics.this_month" /> / 160 hrs</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <div
+                                                    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default remainProgress"
+                                                    role="progressbar"
+                                                  >
+                                                    <div
+                                                      class="ant-progress-inner"
+                                                      style="width: 120px; height: 120px; font-size: 24px"
+                                                    >
+                                                      <svg
+                                                        class="ant-progress-circle"
+                                                        viewBox="-50 -50 100 100"
+                                                        role="presentation"
+                                                      >
+                                                        <circle
+                                                          class="ant-progress-circle-trail"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          style="
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 0;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset 0.3s,
+                                                              stroke-dasharray 0.3s, stroke 0.3s,
+                                                              stroke-width 0.06s 0.3s, opacity 0.3s;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(45, 113, 216);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(82, 196, 26);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle></svg><span class="ant-progress-text" title="160 hrs"
+                                                        ><span style="font-size: 18px; font-weight: bolder;">Remaining</span> <br /> <br /> <t t-esc="this.state.statistics.remaining_for_month" />  hrs</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <div
+                                                    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default overtimeProgress"
+                                                    role="progressbar"
+                                                  >
+                                                    <div
+                                                      class="ant-progress-inner"
+                                                      style="width: 120px; height: 120px; font-size: 24px"
+                                                    >
+                                                      <svg
+                                                        class="ant-progress-circle"
+                                                        viewBox="-50 -50 100 100"
+                                                        role="presentation"
+                                                      >
+                                                        <circle
+                                                          class="ant-progress-circle-trail"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          style="
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 0;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset 0.3s,
+                                                              stroke-dasharray 0.3s, stroke 0.3s,
+                                                              stroke-width 0.06s 0.3s, opacity 0.3s;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(45, 113, 216);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle>
+                                                        <circle
+                                                          class="ant-progress-circle-path"
+                                                          r="45"
+                                                          cx="0"
+                                                          cy="0"
+                                                          stroke-linecap="round"
+                                                          stroke-width="10"
+                                                          opacity="0"
+                                                          style="
+                                                            stroke: rgb(82, 196, 26);
+                                                            stroke-dasharray: 282.743px, 282.743;
+                                                            stroke-dashoffset: 282.733;
+                                                            transform: rotate(-90deg);
+                                                            transform-origin: 0px 0px;
+                                                            transition: stroke-dashoffset,
+                                                              stroke-dasharray, stroke, stroke-width 0.3s,
+                                                              opacity;
+                                                            fill-opacity: 0;
+                                                          "
+                                                        ></circle></svg><span class="ant-progress-text" title="00 hrs"
+                                                        ><span style="font-size: 18px; font-weight: bolder;">Overtime</span> <br /> <br /> <t t-esc="this.state.statistics.overtime_for_month" />  hrs</span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="ant-col sc-llcuoN bIeiWI ant-col-xs-24 ant-col-md-24 ant-col-xl-6"
+                                      style="padding-left: 12px; padding-right: 12px"
+                                    >
+                                      <div class="ant-card ant-card-bordered sc-eGFuAX jOQtui">
+                                        <div class="ant-card-body">
+                                          <h2 class="sc-dVCGSn fPghOt today-activity-heading">
+                                            Today’s Activity
+                                          </h2>
+                                          <div class="Activity">
+                                            <ul class="ant-timeline sc-jnsZEu gtUXBK">
+                                <!-- <div class="sc-dlUsjx bCaMoZ"><h4>No Activity</h4></div> -->
+                                              <t t-if="!this.state.activities" >
+                                                <h4 class="activity__heading sc-dlUsjx bCaMoZ">No Activity</h4>
+                                              </t>
+                                              <t t-else="" >
+                                                <t t-foreach="this.state.activities" t-as="activity" t-key="activity.time" >
+                                                  <li class="ant-timeline-item sc-dkPMvu kiswSS">
+                                                    <div class="ant-timeline-item-tail"></div>
+                                                    <div class="ant-timeline-item-head ant-timeline-item-head-blue"></div>
+                                                    <div class="ant-timeline-item-content">
+                                                      <div class="activity__content">
+                                                        <h4 class="activity__heading">
+                                                          <t t-esc="activity.activity" />
+                                                        </h4>
+                                                        <p class="activity__description">
+                                                          <t t-esc="activity.time" />
+                                                        </p>
+                                                      </div>
+                                                      </div>
+                                                    </li>
+                                                  </t>
+                                              </t>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div
+                                      class="ant-col ant-col-xs-24"
+                                      style="padding-left: 12px; padding-right: 12px"
+                                    ></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="sc-cbelXg gMfnji">
+                                  <form
+                                    class="ant-form ant-form-horizontal undefined d-lg-flex justify-content-between gap-lg-2 attendance_sixth"
+                                  >
+                                    <div class="d-lg-flex flex-grow-1">
+                                      <div
+                                        class="ant-row rowDiv searchForm flex-grow-1"
+                                        style="margin-left: -5px; margin-right: -5px"
+                                      >
+                                        <div
+                                          class="ant-col cellPadding forWidth ant-col-xs-24 ant-col-md-8 ant-col-lg-8"
+                                          style="padding-left: 5px; padding-right: 5px"
+                                        >
+                                          <div class="ant-form-item dateAlign ant-form-item-has-success">
+                                            <div class="ant-row ant-form-item-row">
+                                              <div class="ant-col ant-form-item-control">
+                                                <div class="ant-form-item-control-input">
+                                                  <div class="ant-form-item-control-input-content">
+                                                    <div
+                                                      class="ant-picker ant-picker-status-success form-control"
+                                                    >
+                                                      <div class="ant-picker-input">
+                                                        <input type="month" id="start" value="2024-10" placeholder="Date" autocomplete="off" t-model="this.state._search_term" />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <div
+                                        class="ant-col ant-col-xs-24 ant-col-sm-3 ant-col-md-3 ant-col-lg-3 attendance_nineth"
+                                      >
+                                        <div class="ant-form-item">
+                                          <div class="ant-row ant-form-item-row">
+                                            <div class="ant-col ant-form-item-control">
+                                              <div class="ant-form-item-control-input">
+                                                <div class="ant-form-item-control-input-content">
+                                                  <div
+                                                    class="ant-space ant-space-horizontal ant-space-align-center attendance_tenth"
+                                                    style="gap: 8px"
+                                                  >
+                                                    <div class="ant-space-item attendance_eleventh" style="">
+                                                      <div
+                                                        class="style_commonButton__cv8nD"
+                                                        style="width: auto"
+                                                      >
+                                                        <button
+                                                          id="filter-submit-button"
+                                                          title="Search"
+                                                          type="submit"
+                                                          class="ant-btn ant-btn-primary ant-btn-lg style_search__7MYei"
+                                                          ant-click-animating-without-extra-node="false"
+                                                          t-on-click="onClickSearch"
+                                                        >
+                                                          <span>Search</span>
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                                    <div class="ant-space-item attendance_eleventh">
+                                                      <div
+                                                        class="style_commonButton__cv8nD"
+                                                        style="width: auto"
+                                                      >
+                                                        <button
+                                                          id="filter-reset-button"
+                                                          title="Reset"
+                                                          type="reset"
+                                                          class="ant-btn ant-btn-default ant-btn-lg style_search__7MYei"
+                                                          t-on-click="onClickReset"
+                                                        >
+                                                          <span>Reset</span>
+                                                        </button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="sc-fJjTeA gjWreQ">
+                                <div class="ant-row">
+                                  <div class="ant-col ant-col-xs-24 ant-col-md-24 ant-col-lg-24 attendance_twelth">
+                                    <div class="sc-caslwl dWZiTn attendanceFilter">
+                                      <div class="ant-row ant-row-space-evenly attendance_thirteen">
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <img
+                                              class="present"
+                                              src="https://www.oms.enigmatix.co/static/media/tick.09c9652c75f1fd921ec8753c4efc25ce.svg"
+                                              alt="Present"
+                                              style="aspect-ratio: 1 / 1"
+                                            />
+                                            <p>Present</p>
+                                          </div>
+                                        </div>
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <img
+                                              class="absent"
+                                              src="https://www.oms.enigmatix.co/static/media/cross.d66627387f20d569bf425356fad014b6.svg"
+                                              alt="Absent"
+                                              style="aspect-ratio: 1 / 1"
+                                            />
+                                            <p>Absent</p>
+                                          </div>
+                                        </div>
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <img
+                                              class="absent"
+                                              src="https://www.oms.enigmatix.co/static/media/leavestar.d9a8d77080abe6aafe6998fea2249da6.svg"
+                                              alt="Leave"
+                                              style="aspect-ratio: 1 / 1"
+                                            />
+                                            <p>Leave</p>
+                                          </div>
+                                        </div>
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <div class="sc-fYaxgZ egTiAM" style="display: flex;flex-direction: column;padding-top: 19px;">
+                                              <img
+                                                src="https://www.oms.enigmatix.co/static/media/tick.09c9652c75f1fd921ec8753c4efc25ce.svg"
+                                                alt="present icon"
+                                              /><img
+                                                src="https://www.oms.enigmatix.co/static/media/leavestar.d9a8d77080abe6aafe6998fea2249da6.svg"
+                                                alt="leave icon"
+                                              />
+                                            </div>
+                                            <p>Present | Leave</p>
+                                          </div>
+                                        </div>
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <div class="sc-fYaxgZ egTiAM" style="display: flex;flex-direction: column;padding-top: 19px;">
+                                              <img
+                                                src="https://www.oms.enigmatix.co/static/media/cross.d66627387f20d569bf425356fad014b6.svg"
+                                                alt="absent icon"
+                                              /><img
+                                                src="https://www.oms.enigmatix.co/static/media/leavestar.d9a8d77080abe6aafe6998fea2249da6.svg"
+                                                alt="leave icon"
+                                              />
+                                            </div>
+                                            <p>Absent | Leave</p>
+                                          </div>
+                                        </div>
+                                        <div class="ant-col">
+                                          <div class="d-flex">
+                                            <img
+                                              class="absent"
+                                              src="https://www.oms.enigmatix.co/static/media/remoteWork.77ba1351a1b9e53f5da2acf8465c3799.svg"
+                                              alt="Remote Leave"
+                                              style="width: 25px; aspect-ratio: 1 / 1"
+                                            />
+                                            <p>Remote Leave</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <Calendar search_term="this.state.search_term" employee_id="this.state.employee_info.id" />
+                            </div>
+                          </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </t>
+</templates>

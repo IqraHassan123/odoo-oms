@@ -1,0 +1,8 @@
+<odoo>
+    <record id="sequence_oms_resignation" model="ir.sequence">
+        <field name="name">Resignation</field>
+        <field name="code">oms.resignation</field>
+        <field name="prefix">RES/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>

@@ -1,0 +1,44 @@
+name: make builds for docker-files
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build-for-ubuntu-container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out the repo
+        uses: actions/checkout@v4
+      
+      - name: install docker and docker-compose
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+          sudo apt install python3-pip -y
+          sudo apt install docker-compose -y
+
+      - name: build the image
+        run: |
+          docker build -t ${{ secrets.IMAGE_NAME }} .
+
+      - name: make the compose containers
+        run: |
+          docker-compose up --build -d
+
+  build-for-arch-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out the repo
+        uses: actions/checkout@v4
+
+      - name: install docker
+        run: |
+          curl -fsSL https://get.docker.com -o get-docker.sh
+          sh get-docker.sh
+
+      - name: build the image
+        run: |
+          docker build -t ${{ secrets.IMAGE_NAME }} -f Dockerfile-arch .

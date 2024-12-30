@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.hero" owl="1">
+        <div
+        class="ant-card ant-card-bordered"
+        style="
+          border-radius: 12px;
+          box-shadow: rgba(0, 0, 0, 0.25) 1px 1px 10px;
+          margin-bottom: 20px;
+        "
+      >
+        <div class="ant-card-body">
+          <div class="first-custom">
+            <div class="second-custom">
+              <div class="third-custom">
+                <span class="ant-avatar ant-avatar-circle sc-eyMvgT bNeEyX"
+                  >
+                    <img t-att-src="this.state.image_url" class="w-100 h-100" />
+                </span>
+              </div>
+              <div class="style_employee">
+                <div class="fourth-custom">Hi, <t t-esc="this.props.name" /> </div>
+                <div
+                  class="fith-custom"
+                  style="text-align: start; color: rgb(64, 64, 64)"
+                >
+                  Welcome to your Dashboard!
+                </div>
+              </div>
+            </div>
+            <div class="sixth-custom">
+              <div class="seventh-custom" style="background-color: white">
+                <div style="display: flex; align-items: center; margin-bottom: 4px">
+                  <div
+                    class="eighth-custom"
+                    style="
+                      font-size: 30px;
+                      font-weight: 400;
+                      margin-top: 4px;
+                      margin-right: 6px;
+                    "
+                  >
+                    <span
+                      role="img"
+                      aria-label="loading"
+                      class="anticon anticon-loading anticon-spin"
+                      ></span>
+                        <t t-esc="this.state.days_in_company" />
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="27"
+                      viewBox="0 0 24 27"
+                      fill="none"
+                    >
+                      <path
+                        d="M21.3333 3H20V0.333336H17.3333V3H6.66667V0.333336H4V3H2.66667C1.18667 3 0 4.2 0 5.66667V24.3333C0 25.8 1.18667 27 2.66667 27H21.3333C22.8 27 24 25.8 24 24.3333V5.66667C24 4.2 22.8 3 21.3333 3ZM12 7C14.2133 7 16 8.78667 16 11C16 13.2133 14.2133 15 12 15C9.78667 15 8 13.2133 8 11C8 8.78667 9.78667 7 12 7ZM20 23H4V21.6667C4 19 9.33333 17.5333 12 17.5333C14.6667 17.5333 20 19 20 21.6667V23Z"
+                        fill="#525353"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="nineth-custom" style="color: rgb(64, 64, 64)">
+                  Days at Enigmatix
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </t>
+</templates>

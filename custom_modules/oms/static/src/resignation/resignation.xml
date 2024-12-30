@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="custom.oms.resignation" owl="1">
+      <div class="sc-bbpQIs iQhnRV">
+        <section class="ant-layout h-100 style_layoutSetting__TI2Q7">
+            <SideBar active="'resignation'" />
+            <section class="ant-layout">
+                <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
+                  <div class="page-wrapper" style="">
+                    <div class="page-wrapper">
+                        <div class="content container-fluid">
+                          <div class="page-header" style="margin-bottom: 0px;">
+                            <div class="customTabs row align-items-center">
+                              <div class="d-flex justify-content-between align-items-start mb-3 __custom_first">
+                                <div class="col __custom_second">
+                                  <h3 class="sc-eACynP gnOZuZ page-title">Resignation</h3>
+                                  <ul class="sc-bZPPFW hInbbk breadcrumb" style="background: transparent;">
+                                    <li class="breadcrumb-item false" t-on-click="() => this.openDashboard()">
+                                      <a class="sc-gjTGSA gUoYHo">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" t-on-click="() => this.openResgination()">
+                                      <a class="sc-gjTGSA gUoYHo">Resignation</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="style_commonButton__cv8nD" style="width: auto">
+                                  <button
+                                    id="apply-leave-button"
+                                    title="Apply Leave"
+                                    type="button"
+                                    class="ant-btn ant-btn-default sc-gKcTBh HFmXi btn btn-primary"
+                                    data-toggle="modal" data-target="#resignationModal"
+                                    t-on-click="toggleModal"
+                                  >
+                                    <span>Apply Resignation</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <br />
+                          <div class="tab-content" id="nav-tabContent">
+                            <MyResignations employee_id="this.state.employee_id" />
+                          </div>
+                        </div>
+                        <div>
+                    </div>
+                    </div>              
+                </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <t t-if="state.showModal">
+      <div class="modal fade show" id="resignationModal" tabindex="-1" role="dialog" aria-labelledby="resignationModalLabel" aria-hidden="true" style="display: block;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="resignationModalLabel">Apply Resignation</h5>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group row">
+                  <label for="notice_period">Notice Period: </label>
+                  <input type="number" class="form-control" id="notice_period" t-model="this.state._notice_period" />
+                </div>
+                <div class="form-group row d-flex">
+                  <label for="reason">Reason: </label>
+                  <textarea class="form-control" id="reason" rows="3" t-model="this.state._reason" ></textarea>
+                  <br />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" t-on-click="toggleModal">Close</button>
+              <button type="button" class="btn btn-primary" t-on-click="() => this.applyForResignation()">Apply For Resignation</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+    </t>
+</templates>

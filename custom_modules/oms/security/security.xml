@@ -1,0 +1,7 @@
+<odoo>
+    <record id="group_remote_work_manager" model="res.groups">
+        <field name="name">Remote Work Manager</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>

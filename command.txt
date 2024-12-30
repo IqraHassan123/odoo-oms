@@ -1,0 +1,1 @@
+python3 odoo-bin -d oms123 --addons-path=custom_modules,addons -u oms --dev=all

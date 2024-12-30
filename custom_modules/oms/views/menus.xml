@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="menu_oms" name="OMS" sequence="10"/>
+    <menuitem id="menu_oms_main" name="OMS" parent="menu_oms" action="action_oms_main" sequence="10"/>
+    <menuitem id="menu_oms_announcement" name="Announcement" parent="menu_oms" action="action_oms_announcement" sequence="20"/>
+    <menuitem id="menu_oms_leave" name="Leave" parent="menu_oms" action="action_oms_leave" sequence="30"/>
+</odoo>
