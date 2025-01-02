@@ -85,8 +85,8 @@ class EmployeeLeaveAPI(http.Controller):
 
         """Retrieve Leave History"""
         try:
-            employee_id = kwargs.get('employee_id')
-            year=kwargs.get('year',datetime.now().year)
+            employee_id = request.httprequest.args.get('employee_id')
+            year=request.httprequest.args.get('year',datetime.now().year)
 
             print(f"Received Employee ID: {employee_id}")
 
@@ -127,7 +127,7 @@ class EmployeeLeaveAPI(http.Controller):
     @http.route('/api/employee/balance', auth='public', methods=['GET'], csrf=False)
     def get_leave_balance(self, **kwargs):
         employee_id = kwargs.get('employee_id')
-        year = kwargs.get('year', datetime.now().year)  # Default to current year if no year is provided
+        year = kwargs.get('year', datetime.now().year)
 
         if not employee_id:
             return json.dumps({"error": "Employee ID must be provided."})
@@ -137,18 +137,15 @@ class EmployeeLeaveAPI(http.Controller):
         except ValueError:
             return json.dumps({"error": "Invalid year format. Year must be numeric."})
 
-        # Define the start and end dates for the requested year
         start_date = f"{year}-01-01"
         end_date = f"{year}-12-31"
 
-        # Fetch employee's allocated leave for the year
         allocation_rules = request.env['hr.leave.allocation'].sudo().search([
             ('employee_id', '=', int(employee_id)),
             ('date_from', '>=', start_date),
             ('date_to', '<=', end_date)
         ])
 
-        # Calculate the total leave allocation for the year
         allocation_data = []
         for allocation in allocation_rules:
             leave_type = allocation.holiday_status_id
@@ -161,7 +158,6 @@ class EmployeeLeaveAPI(http.Controller):
                 ('request_date_to', '<=', end_date)
             ])
 
-            # Calculate total days taken
             total_taken = sum((leave.request_date_to - leave.request_date_from).days + 1 for leave in taken_leaves)
 
             remaining_balance = allocated_leaves - total_taken
@@ -177,7 +173,6 @@ class EmployeeLeaveAPI(http.Controller):
 
     @http.route('/api/employee/leave/cancel', http='json', auth='user', methods=['POST'], csrf=False)
     def cancel_leave(self, leave_id):
-        """Cancel a Leave Request"""
         leave = request.env['hr.leave'].sudo().browse(int(leave_id))
         if not leave:
             return {"error": "Leave request not found"}
@@ -191,9 +186,10 @@ class EmployeeLeaveAPI(http.Controller):
 "Admin Site  Leave API"
 class AdminLeaveAPI(http.Controller):
 
-    @http.route('/api/admin/leaves', http='json', auth='user', methods=['GET'], csrf=False)
+    @http.route('/api/admin/leaves', http='json', auth='public', methods=['GET'], csrf=False)
     def get_all_leaves(self, **kwargs):
-        """Retrieve All Leave Requests"""
+        user=request.env.user
+
         domain = []
         employee_id = kwargs.get('employee_id')
         status = kwargs.get('status')
@@ -212,42 +208,200 @@ class AdminLeaveAPI(http.Controller):
         } for leave in leaves]
         return Response(json.dumps({"leaves": leave_data}), content_type='application/json')
 
-
+# class LeaveController(http.Controller):
+#     @http.route('/api/manage/leave', http='json', auth='public', methods=['PUT'], csrf=False)
+#     def manage_leave(self, **kwargs):
+#         """Approve/Reject a Leave Request"""
+#
+#         # Extract employee_id from the request body
+#         employee_id = kwargs.get('employee_id')
+#         if not employee_id:
+#             return Response(
+#                 json.dumps({"error": "Employee ID is required."}),
+#                 content_type='application/json',
+#                 status=400
+#             )
+#
+#         # Validate employee_id
+#         try:
+#             employee_id = int(employee_id)
+#         except ValueError:
+#             return {"error": "Invalid employee_id, must be an integer"}
+#
+#         employee = request.env['hr.employee'].sudo().browse(employee_id)
+#         if not employee.exists():
+#             return {"error": "Employee not found"}
+#
+#         # Role validation
+#         user_role = employee.job_id.name if employee.job_id else None
+#         allowed_roles = ['Human Resources Manager']
+#         if user_role not in allowed_roles:
+#             return Response(
+#                 json.dumps({"error": "You do not have permission to manage leave requests."}),
+#                 content_type='application/json',
+#                 status=403
+#             )
+#
+#         # Extract and validate leave_id and action
+#         leave_id = kwargs.get('leave_id')
+#         action = kwargs.get('action')
+#         if not leave_id or not action:
+#             return {"error": "Missing required parameters 'leave_id' or 'action'"}
+#
+#         try:
+#             leave_id = int(leave_id)
+#         except ValueError:
+#             return {"error": "Invalid leave_id, must be an integer"}
+#
+#         leave = request.env['hr.leave'].sudo().browse(leave_id)
+#         if not leave.exists():
+#             return {"error": "Leave request not found"}
+#
+#         # Perform the action
+#         if action == 'approve':
+#             leave.action_approve()
+#         elif action == 'reject':
+#             leave.action_refuse()
+#         else:
+#             return {"error": "Invalid action. Use 'approve' or 'reject'"}
+#
+#         # Return success response
+#         return {"success": True, "status": leave.state}
 
 class LeaveController(http.Controller):
-    @http.route('/api/admin/leave', http='json', auth='public', methods=['PUT'], csrf=False)
+    @http.route('/api/manage/leave', http='json', auth='public', methods=['PUT'], csrf=False)
     def manage_leave(self, **kwargs):
         """Approve/Reject a Leave Request"""
-
-        # Fetch parameters from the request
-        leave_id = kwargs.get('leave_id')
-        action = kwargs.get('action')
-
-        # Validate input parameters
-        if not leave_id or not action:
-            return {"error": "Missing required parameters 'leave_id' or 'action'"}
-
         try:
+            data = json.loads(request.httprequest.data)
+            print("Received Data:", data)
+
+            employee_id = data.get('employee_id')
+            if not employee_id:
+                return Response(
+                    json.dumps({"error": "Employee ID is required."}),
+                    content_type='application/json',
+                    status=400
+                )
+
+            employee_id = int(employee_id)
+            employee = request.env['hr.employee'].sudo().browse(employee_id)
+            if not employee.exists():
+                return Response(
+                    json.dumps({"error": "Employee not found"}),
+                    content_type='application/json',
+                    status=404
+                )
+
+            manager = employee.parent_id
+            print("===Manager:", manager)
+
+            if not manager:
+                return Response(
+                    json.dumps({"error": "Employee does not have a manager assigned."}),
+                    content_type='application/json',
+                    status=400
+                )
+
+            current_user = request.env.user
+            if current_user.id != manager.user_id.id:
+                user_role = employee.job_id.name if employee.job_id else None
+                allowed_roles = ['Human Resources Manager', 'Chief Executive Officer']
+                if user_role not in allowed_roles:
+                    return Response(
+                        json.dumps({"error": "You do not have permission to manage leave requests."}),
+                        content_type='application/json',
+                        status=403
+                    )
+
+            leave_id = data.get('leave_id')
+            action = data.get('action')
+            if not leave_id or not action:
+                return Response(
+                    json.dumps({"error": "Missing required parameters 'leave_id' or 'action'."}),
+                    content_type='application/json',
+                    status=400
+                )
             leave_id = int(leave_id)
-        except ValueError:
-            return {"error": "Invalid leave_id, must be an integer"}
+            leave = request.env['hr.leave'].sudo().browse(leave_id)
+            if not leave.exists():
+                return Response(
+                    json.dumps({"error": "Leave request not found"}),
+                    content_type='application/json',
+                    status=404
+                )
 
-        leave = request.env['hr.leave'].sudo().browse(leave_id)
+            if action == 'approve':
+                leave.action_approve()
+            elif action == 'reject':
+                leave.action_refuse()
+            else:
+                return Response(
+                    json.dumps({"error": "Invalid action. Use 'approve' or 'reject'."}),
+                    content_type='application/json',
+                    status=400
+                )
 
-        if not leave.exists():
-            return {"error": "Leave request not found"}
-        if action == 'approve':
-            leave.action_approve()
-        elif action == 'reject':
-            leave.action_refuse()
-        else:
-            return {"error": "Invalid action. Use 'approve' or 'reject'"}
+            return Response(
+                json.dumps({"success": True, "status": leave.state}),
+                content_type='application/json',
+                status=200
+            )
 
-        return {"success": True, "status": leave.state}
+        except Exception as e:
+            return Response(
+                json.dumps({"error": f"An unexpected error occurred: {str(e)}"}),
+                content_type='application/json',
+                status=500
+            )
+
+    @http.route('/api/employee/leaves', auth='user', methods=['GET'], csrf=False, http='json')
+    def get_employee_leaves(self, **kwargs):
+        try:
+            employee_id = request.env.user.employee_id.id
+            employee = request.env['hr.employee'].sudo().browse(employee_id)
+
+            if not employee.exists():
+                return Response(
+                    json.dumps({"error": "Employee not found"}),
+                    content_type='application/json',
+                    status=404
+                )
+
+            manager = employee.parent_id
+
+            if not manager:
+                return Response(
+                    json.dumps({"error": "Employee does not have a manager assigned."}),
+                    content_type='application/json',
+                    status=400
+                )
+
+            leaves = request.env['hr.leave'].sudo().search([('employee_id', '=', employee.id)])
+
+            leave_data = [{
+                'id': leave.id,
+                'type': leave.holiday_status_id.name,
+                'request_date_from': leave.request_date_from.strftime('%Y-%m-%d') if leave.request_date_from else None,
+                'request_date_end': leave.request_date_to.strftime('%Y-%m-%d') if leave.request_date_from else None,
+                'state': leave.state,
+            } for leave in leaves]
+
+            return Response(
+                json.dumps({"leaves": leave_data}),
+                content_type='application/json',
+                status=200
+            )
+
+        except Exception as e:
+            return Response(
+                json.dumps({"error": f"An unexpected error occurred: {str(e)}"}),
+                content_type='application/json',
+                status=500
+            )
 
     @http.route('/api/admin/leave', type='json', auth='user', methods=['DELETE'], csrf=False)
     def delete_leave(self, leave_id):
-        """Delete a Leave Request"""
         leave = request.env['hr.leave'].sudo().browse(int(leave_id))
         if not leave:
             return {"error": "Leave request not found"}
