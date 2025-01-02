@@ -5,8 +5,6 @@ from odoo.exceptions import UserError
 class RemoteWork(models.Model):
     _name = "oms.remote.work"
     _description = "Remote Work"
-    
-    name = fields.Char(string="Name", required=True)
     employee_id = fields.Many2one("hr.employee", string="Employee", required=True, default=lambda self: self.env.user.employee_id)
     start_date = fields.Date(string="Start Date", required=True)
     end_date = fields.Date(string="End Date", required=True)

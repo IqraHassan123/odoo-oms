@@ -5,7 +5,7 @@ import json
 
 class EmployeeController(http.Controller):
 
-    @http.route('/api/all/employees', auth='user', http='json', methods=['GET'])
+    @http.route('/api/all/employees', auth='public', http='json', methods=['GET'])
     def get_employees(self, **kwargs):
         user = request.env.user
         print("== User:", user)
