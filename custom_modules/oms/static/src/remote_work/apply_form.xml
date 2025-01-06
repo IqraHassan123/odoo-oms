@@ -1,0 +1,61 @@
+<t t-name="custom.oms.remote_work.apply_form" owl="1">
+    <div t-if="this.props.isFormOpen" class="modal fade show" tabindex="-1" role="dialog" aria-labelledby="remoteWorkModalLabel" aria-hidden="true" style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="remoteWorkModalLabel">Apply for Remote Work</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="start_date">Start Date:</label>
+                            <input
+                                type="date"
+                                id="start_date"
+                                class="form-control"
+                                t-model="state.start_date"
+                                required="required"
+                            />
+                        </div>
+                        <div class="form-group row">
+                            <label for="end_date">End Date:</label>
+                            <input
+                                type="date"
+                                id="end_date"
+                                class="form-control"
+                                t-model="state.end_date"
+                                required="required"
+                            />
+                        </div>
+                        <div class="form-group row">
+                            <label for="reason">Reason:</label>
+                            <textarea
+                                id="reason"
+                                class="form-control"
+                                rows="3"
+                                t-model="state.reason"
+                                required="required"
+                            ></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        t-on-click="toggleApplyForm"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        t-on-click="onClickApplyForRemote"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</t>

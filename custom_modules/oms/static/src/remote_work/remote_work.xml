@@ -1,160 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-name="custom.oms.remote_work" owl="1">
-      <div class="sc-bbpQIs iQhnRV" >
-        <section class="ant-layout h-100 style_layoutSetting__TI2Q7" >
-            <SideBar active="'remote_work'" />
-            <section class="ant-layout" >
-                <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
-                  <div class="page-wrapper" style="">
-                    <div class="page-wrapper">
-                        <div class="content container-fluid">
-                          <div class="page-header" style="margin-bottom: 0px;">
-                            <div class="customTabs row align-items-center">
-                              <div class="d-flex justify-content-between align-items-start mb-3 __custom_first">
-                                <div class="col __custom_second">
-                                  <h3 class="sc-eACynP gnOZuZ page-title">Remote Work</h3>
-                                  <ul class="sc-bZPPFW hInbbk breadcrumb" style="background: transparent;">
-                                    <li class="breadcrumb-item false" t-on-click="() => this.openDashboard()" >
-                                      <a class="sc-gjTGSA gUoYHo">Dashboard</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" t-on-click="() => this.openRemoteWork()">
-                                      <a
-                                        class="sc-gjTGSA gUoYHo"
-                                        >Remote Work</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div class="style_commonButton__cv8nD" style="width: auto">
-                                  <button
-                                    id="apply-leave-button"
-                                    title="Apply Leave"
-                                    type="button"
-                                    class="ant-btn ant-btn-default sc-gKcTBh HFmXi btn btn-primary"
-                                    t-on-click.stop.prevent="() => this.onClickApplyForRemote()"
-                                  >
-                                    <span>Apply For Remote</span>
-                                  </button>
-                                  </div>
-                              </div>
-                              <div
-                                class="ant-card ant-card-bordered ant-card-contain-tabs sc-eqAOSo kBoCEc d-flex justify-content-between align-items-center mb-4"
-                              >
-                                <div class="ant-card-head">
-                                  <div class="ant-card-head-wrapper"></div>
-                                  <div
-                                    id="leave"
-                                    class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
-                                  >
-                                    <div role="tablist" class="ant-tabs-nav">
-                                      <div class="ant-tabs-nav-wrap">
-                                        <div
-                                          class="ant-tabs-nav-list"
-                                          style="transform: translate(0px, 0px)"
-                                        >
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                          <li class="nav-item">
-                                            <div
-                                          data-node-key="myLeaves"
-                                          class="active"
-                                        >
-                                          <button
-                                            class="nav-link active"
-                                            tabindex="0"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#myLeaves" type="button" role="tab" aria-controls="myLeaves" aria-selected="true"
-                                          >
-                                            Remote Work
-                                          </button>
-                                        </div>
-                                          </li>
-                                        <li class="nav-item">
-                                          <div
-                                          data-node-key="myLeaves"
-                                          class=""
-                                          style="background: rgb(255, 255, 255); color: rgb(0, 0, 0);"
-                                          t-if="this.state.is_a_manager"
-                                        >
-                                          <button
-                                            class="nav-link"
-                                            tabindex="1"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#manageLeaves" type="button" role="tab" aria-controls="manageLeaves" aria-selected="false"
-                                          >
-                                            Manage Remote Work
-                                          </button>
-                                        </div>
-                                        </li>
-                                        </ul>
-                                          <div
-                                            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                                            style="left: 0px; width: 131px"
-                                          ></div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-                                      >
-                                        <button
-                                          type="button"
-                                          class="ant-tabs-nav-more"
-                                          tabindex="-1"
-                                          aria-hidden="true"
-                                          aria-haspopup="listbox"
-                                          aria-controls="leave-more-popup"
-                                          id="leave-more"
-                                          aria-expanded="false"
-                                          style="visibility: hidden; order: 1"
-                                        >
-                                          <span
-                                            role="img"
-                                            aria-label="ellipsis"
-                                            class="anticon anticon-ellipsis"
-                                            ><svg
-                                              viewBox="64 64 896 896"
-                                              focusable="false"
-                                              data-icon="ellipsis"
-                                              width="1em"
-                                              height="1em"
-                                              fill="currentColor"
-                                              aria-hidden="true"
-                                            >
-                                              <path
-                                                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                              ></path></svg></span>
-                                        </button>
-                                      </div>
+  <t t-name="custom.oms.remote_work" owl="1">
+    <div class="sc-bbpQIs iQhnRV">
+      <section class="ant-layout h-100 style_layoutSetting__TI2Q7">
+        <SideBar active="'remote_work'" />
+        <section class="ant-layout">
+          <div id="OMS-dashboard" class="sc-dZpgSj eyyPQg">
+            <div class="page-wrapper">
+              <div class="content container-fluid">
+                <div class="page-header" style="margin-bottom: 0px;">
+                  <div class="customTabs row align-items-center">
+                    <div class="d-flex justify-content-between align-items-start mb-3 __custom_first">
+                      <div class="col __custom_second">
+                        <h3 class="sc-eACynP gnOZuZ page-title">Remote Work</h3>
+                        <ul class="sc-bZPPFW hInbbk breadcrumb" style="background: transparent;">
+                          <li class="breadcrumb-item false" t-on-click="() => this.openDashboard()">
+                            <a class="sc-gjTGSA gUoYHo">Dashboard</a>
+                          </li>
+                          <li class="breadcrumb-item active" t-on-click="() => this.openRemoteWork()">
+                            <a class="sc-gjTGSA gUoYHo">Remote Work</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="style_commonButton__cv8nD" style="width: auto">
+<div>
+    <button id="apply-remote-button" type="button" 
+        class="ant-btn ant-btn-default" 
+        t-on-click="toggleApplyForm">
+        Apply For Remote
+    </button>
+
+ <t t-if="this.state.showApplyForm">
+    <ApplyForm onDataAdded="refreshTableData" t-on-toggleApplyForm="toggleApplyForm"  isFormOpen="this.state.showApplyForm" />
+</t>
+
+
+</div>
+
+<!-- <div>
+    <button
+        t-on-click="toggleApplyForm"
+        class="btn btn-primary"
+    >
+        <t t-esc="state.showApplyForm ? 'Close Form' : 'Apply for Remote Work'"/>
+    </button>
+
+    <t t-if="state.showApplyForm">
+        <ApplyForm
+            toggleApplyForm="toggleApplyForm"
+            isFormOpen="state.showApplyForm"
+            onDataAdded="refreshTableData"
+        />
+    </t>
+</div> -->
+
+
+                      </div>
+                    </div>
+
+                    <div class="ant-card ant-card-bordered ant-card-contain-tabs sc-eqAOSo kBoCEc d-flex justify-content-between align-items-center mb-4">
+                      <div class="ant-card-head">
+                        <div class="ant-card-head-wrapper"></div>
+                        <div id="leave" class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs">
+                          <div role="tablist" class="ant-tabs-nav">
+                            <div class="ant-tabs-nav-wrap">
+                              <div class="ant-tabs-nav-list" style="transform: translate(0px, 0px)">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                  <li class="nav-item">
+                                    <div data-node-key="myLeaves" class="active">
+                                      <button class="nav-link active" tabindex="0" data-bs-toggle="tab"
+                                        data-bs-target="#myLeaves" type="button" role="tab" aria-controls="myLeaves"
+                                        aria-selected="true">
+                                        Remote Work
+                                      </button>
                                     </div>
-                                    <div class="ant-tabs-content-holder">
-                                      <div class="ant-tabs-content ant-tabs-content-top">
-                                        <div
-                                          id="leave-panel-myLeaves"
-                                          role="tabpanel"
-                                          tabindex="0"
-                                          aria-labelledby="leave-tab-manageLeaves"
-                                          aria-hidden="false"
-                                          class="ant-tabs-tabpane ant-tabs-tabpane-active"
-                                        ></div>
-                                      </div>
+                                  </li>
+                                  <li class="nav-item" t-if="this.state.is_a_manager">
+                                    <div data-node-key="myLeaves">
+                                      <button class="nav-link" tabindex="1" data-bs-toggle="tab"
+                                        data-bs-target="#manageLeaves" type="button" role="tab"
+                                        aria-controls="manageLeaves" aria-selected="false">
+                                        Manage Remote Work
+                                      </button>
                                     </div>
-                                  </div>
-                                </div>
+                                  </li>
+                                </ul>
+                                <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated" style="left: 0px; width: 131px"></div>
                               </div>
                             </div>
                           </div>
-                          <br />
-                          <div class="tab-content" id="nav-tabContent">
-                            <MyRemoteWork remote_applications="this.state.remote_applications" />
-                            <ManageRemoteWork employee_info="this.state.employee_info" is_a_manager="this.state.is_a_manager" employee_ids="this.state.employee_ids" />
+                          <div class="ant-tabs-content-holder">
+                            <div class="ant-tabs-content ant-tabs-content-top">
+                              <div id="leave-panel-myLeaves" role="tabpanel" tabindex="0"
+                                aria-labelledby="leave-tab-manageLeaves" aria-hidden="false"
+                                class="ant-tabs-tabpane ant-tabs-tabpane-active">
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div>
+                      </div>
                     </div>
-                    </div>              
+                  </div>
                 </div>
+
+                <div class="table-responsive tab-pane fade show active">
+                  <table class="table table-bordered table-hover align-middle">
+                    <t t-if="state.remote_applications.length > 0">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Leave Type</th>
+                          <th>Date</th>
+                          <th>Duration</th>
+                          <th>Status</th>
+                          <th>Manager</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                    </t>
+                    <tbody>
+                      <t t-if="state.remote_applications.length === 0">
+                        <tr>
+                          <td colspan="6" class="text-center py-4">
+                            <div class="alert alert-secondary" role="alert">
+                              <div class="d-flex align-items-center justify-content-center">
+                                <svg class="ant-empty-img-simple" width="64" height="41" viewBox="0 0 64 41"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
+                                    <ellipse class="ant-empty-img-simple-ellipse" cx="32" cy="33" rx="32"
+                                      ry="7"></ellipse>
+                                    <g class="ant-empty-img-simple-g" fill-rule="nonzero">
+                                      <path d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z">
+                                      </path>
+                                      <path d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z" class="ant-empty-img-simple-path"></path>
+                                    </g>
+                                  </g>
+                                </svg>
+                                <br />
+                                <span>No data available</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </t>
+                      <t t-else="">
+                        <t t-foreach="state.remote_applications" t-as="application" t-key="application.id">
+                          <tr>
+                            <td><t t-esc="application.leave_type" /></td>
+                            <td><t t-esc="application.date" /></td>
+                            <td><t t-esc="application.duration" /></td>
+                            <td><t t-esc="application.status" /></td>
+                            <td><t t-esc="application.leave_manager" /></td>
+                            <td><t t-esc="application.description" /></td>
+                          </tr>
+                        </t>
+                      </t>
+                    </tbody>
+                  </table>
                 </div>
-            </section>
+
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="tab-content" id="nav-tabContent">
+            <MyRemoteWork remote_applications="this.state.remote_applications" />
+            <ManageRemoteWork employee_info="this.state.employee_info" is_a_manager="this.state.is_a_manager"
+              employee_ids="this.state.employee_ids" />
+          </div>
         </section>
+      </section>
     </div>
-    </t>
+    <ApplyForm />
+  </t>
 </templates>
